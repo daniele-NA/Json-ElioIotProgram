@@ -1,0 +1,271 @@
+{
+	"do": [
+		{
+			"on": {
+				"do": [
+					{
+						"if": {
+							"is": [
+								"cubePosition",
+								"==",
+								4
+							],
+							"then": [
+								{
+									"say": {
+										"text": "Led attivati",
+										"voice": "Giorgio"
+									}
+								},
+								{
+									"light": {
+										"brightness": 100,
+										"color": 9,
+										"duration": 0,
+										"led": 1
+									}
+								},
+								{
+									"light": {
+										"brightness": 100,
+										"color": 11,
+										"duration": 0,
+										"led": 2
+									}
+								},
+								{
+									"light": {
+										"brightness": 100,
+										"color": 9,
+										"duration": 0,
+										"led": 3
+									}
+								},
+								{
+									"light": {
+										"brightness": 100,
+										"color": 11,
+										"duration": 0,
+										"led": 4
+									}
+								},
+								{
+									"light": {
+										"brightness": 100,
+										"color": 9,
+										"duration": 0,
+										"led": 5
+									}
+								},
+								{
+									"light": {
+										"brightness": 100,
+										"color": 11,
+										"duration": 0,
+										"led": 6
+									}
+								}
+							]
+						}
+					},
+					{
+						"if": {
+							"is": [
+								"cubePosition",
+								"==",
+								3
+							],
+							"then": [
+								{
+									"say": {
+										"text": "Led disattivati",
+										"voice": "Giorgio"
+									}
+								},
+								{
+									"light": {
+										"color": 0,
+										"duration": 0,
+										"led": 0
+									}
+								}
+							]
+						}
+					},
+					{
+						"if": {
+							"is": [
+								"cubePosition",
+								"==",
+								5
+							],
+							"then": [
+								{
+									"say": {
+										"text": "time",
+										"voice": "Giorgio"
+									}
+								}
+							]
+						}
+					},
+					{
+						"if": {
+							"is": [
+								"cubePosition",
+								"==",
+								6
+							],
+							"then": [
+								{
+									"say": {
+										"text": "batteryVoltage",
+										"voice": "Giorgio"
+									}
+								}
+							]
+						}
+					}
+				],
+				"event": "cubicPositionChanged"
+			}
+		},
+		{
+			"on": {
+				"do": [
+					{
+						"if": {
+							"else": [
+								{
+									"radio": {
+										"play": 0
+									}
+								},
+								{
+									"set": [
+										"z",
+										"=",
+										0
+									]
+								}
+							],
+							"is": [
+								"z",
+								"==",
+								0
+							],
+							"then": [
+								{
+									"radio": {
+										"play": 1,
+										"url": "http://icestreaming.rai.it/1.mp3"
+									}
+								},
+								{
+									"set": [
+										"z",
+										"=",
+										1
+									]
+								}
+							]
+						}
+					}
+				],
+				"event": "upPressed"
+			}
+		},
+		{
+			"on": {
+				"do": [
+					{
+						"if": {
+							"else": [
+								{
+									"radio": {
+										"play": 0
+									}
+								},
+								{
+									"set": [
+										"z",
+										"=",
+										0
+									]
+								}
+							],
+							"is": [
+								"z",
+								"==",
+								1
+							],
+							"then": [
+								{
+									"radio": {
+										"play": 1,
+										"url": "http://icestreaming.rai.it/2.mp3"
+									}
+								},
+								{
+									"set": [
+										"y",
+										"=",
+										1
+									]
+								}
+							]
+						}
+					}
+				],
+				"event": "downPressed"
+			}
+		},
+		{
+			"on": {
+				"do": [
+					{
+						"say": {
+							"text": "Dispositivo in carica",
+							"voice": "Giorgio"
+						}
+					},
+					{
+						"light": {
+							"brightness": 10,
+							"color": 5,
+							"duration": 0,
+							"led": 0
+						}
+					}
+				],
+				"event": "plugged"
+			}
+		},
+		{
+			"on": {
+				"do": [
+					{
+						"say": {
+							"text": "Dispositivo rimosso dalla carica",
+							"voice": "Giorgio"
+						}
+					},
+					{
+						"light": {
+							"color": 12,
+							"duration": 1
+						}
+					}
+				],
+				"event": "unplugged"
+			}
+		},
+		{
+			"set": [
+				"z",
+				"=",
+				0
+			]
+		}
+	]
+}
